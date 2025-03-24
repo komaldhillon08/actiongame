@@ -1,7 +1,14 @@
 const scoreCont = document.querySelector(".scoreCont"); // Select the element with the ID 'scoreContainer'
 score = 0 ;
 cross = true ; 
+let gameoveraudio = new Audio('./music/gameover.mp3');
 
+let music = new Audio("./music/music.mp3") ;
+
+
+setTimeout(() => {
+    music.play();
+},1000);
 
 document.onkeydown = function (e) {
     console.log("key code is ", e.keyCode);
@@ -24,6 +31,7 @@ document.onkeydown = function (e) {
         dino.style.left = (dinox - 100) + "px" ; 
     }
 }
+// game over
 setInterval(() => {
     dino = document.querySelector(".dino");
     obstacle = document.querySelector(".obstacle");
@@ -40,8 +48,8 @@ setInterval(() => {
 
   //  console.log(offsetx, offsety);
 
-    if (offsetx < 93 && offsety < 52) {
-
+    if (offsetx < 75 && offsety < 52) {
+// game over 
         gameover.style.visibility = 'visible'; // Correct visibility value
         obstacle.classList.remove('obstacleAni');
     }
@@ -51,16 +59,24 @@ setInterval(() => {
         cross = false ; 
         setTimeout(() => {
             cross = true ; 
-        }, 500);
+        }, 1000);
+        
+        setTimeout(() => {
+            anydur =  parseFloat(window.getComputedStyle(dino, null).getPropertyValue('animation-duration'));
+            newDur = anydur - 0.1 ;
+            obstacle.style.animationDuration = newDur + " s "  ; 
+        }, 1000);
     }
 
 
-}, 100)
+}, 10)
 
 
 // score function
 function updateScore(score) {
-    scoreCont.innerText = "Your Score :" + score
+    scoreCont.innerText = "Your Score : " + score
+    scoreCont.style.transition = 'all 1s ease-in-out';
+   
 }
 
 
