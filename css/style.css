@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color: red;
+    overflow: hidden;
 }
 .container{
     background-image: url(../assets/bg.png);
@@ -13,6 +13,9 @@ body{
     height: 100vh;
     width: 100%;
     
+}
+.gameover{
+    visibility: hidden;
 }
 .dino{
     background-image: url(../assets/dino.png);
@@ -34,23 +37,32 @@ body{
     bottom: 0;
     left: 70vw;
 }
-.animatedion{
-    animation: dino 0.6 linear;
+.animatedion {
+    animation: dinoJump 0.6s ease-in-out; /* Slight easing for smooth jump */
 }
-@keyframes dino{
-    0%{
-        bottom:0;
-    }
-    50%{
-        bottom:450px;
 
+@keyframes dinoJump {
+    0% {
+        bottom: 0;
+    }
+    50% {
+        bottom: 450px; /* Peak of the jump */
+    }
+    100% {
+        bottom: 0; /* Return to original position */
+    }
+}
+.obstacleAni{
+    animation: obstacleAni 5s linear infinite;
+}
+@keyframes obstacleAni{
+    0%{
+        left: 100vw;
     }
     100%{
-        bottom:0px;
+        left: -10vh;
     }
 }
-
-
 
 
 
