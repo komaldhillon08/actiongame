@@ -34,3 +34,35 @@ body{
     bottom: 0;
     left: 70vw;
 }
+.animatedion{
+    animation: dino 0.6 linear;
+}
+@keyframes dino{
+    0%{
+        bottom:0;
+    }
+    50%{
+        bottom:450px;
+
+    }
+    100%{
+        bottom:0px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
