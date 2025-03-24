@@ -38,7 +38,7 @@ setInterval(() => {
     offsetx = Math.abs(dx - ox);
     offsety = Math.abs(dy - oy);
 
-    console.log(offsetx, offsety);
+  //  console.log(offsetx, offsety);
 
     if (offsetx < 93 && offsety < 52) {
 
@@ -46,12 +46,12 @@ setInterval(() => {
         obstacle.classList.remove('obstacleAni');
     }
     else if(offsetx < 145 && cross){
-        score += 0;
+        score += 1;
         updateScore(score) ;
         cross = false ; 
         setTimeout(() => {
             cross = true ; 
-        }, 10);
+        }, 500);
     }
 
 
@@ -60,7 +60,7 @@ setInterval(() => {
 
 // score function
 function updateScore(score) {
-    scoreCont.innerHTML = "Your Score :" + score
+    scoreCont.innerText = "Your Score :" + score
 }
 
 
