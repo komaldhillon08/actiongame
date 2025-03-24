@@ -4,7 +4,7 @@ cross = true;
 let gameoveraudio = new Audio('./music/gameover.mp3');
 
 let music = new Audio("./music/music.mp3");
-
+let obstacleSpeedDecrease = 0.1;
 
 setTimeout(() => {
     music.play();
@@ -71,7 +71,7 @@ setInterval(() => {
 
         setTimeout(() => {
             anydur = parseFloat(window.getComputedStyle(dino, null).getPropertyValue('animation-duration'));
-            newDur = anydur - 0.1;
+            newDur = anydur - obstacleSpeedDecrease;
             obstacle.style.animationDuration = newDur + " s ";
         }, 1000);
     }
